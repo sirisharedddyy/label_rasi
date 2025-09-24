@@ -43,39 +43,31 @@ export const useProducts = () => {
 const sampleProducts: Product[] = [
   {
     id: '1',
-    name: 'T-Shirt',
-    price: 19.99,
-    image: '/next.svg', // placeholder
-    category: 'Clothing',
-    description: 'Comfortable cotton t-shirt'
+    name: 'Bridal Lehenga',
+    price: 899.99,
+    image: '/next.svg',
+    category: 'Lehengas',
+    description: 'Stunning bridal lehenga with intricate embroidery'
   },
   {
     id: '2',
-    name: 'Jeans',
-    price: 49.99,
+    name: 'Party Lehenga',
+    price: 599.99,
     image: '/next.svg',
-    category: 'Clothing',
-    description: 'Classic blue jeans'
+    category: 'Lehengas',
+    description: 'Elegant party lehenga perfect for celebrations'
   },
   {
     id: '3',
-    name: 'Sneakers',
-    price: 79.99,
+    name: 'Designer Lehenga',
+    price: 749.99,
     image: '/next.svg',
-    category: 'Shoes',
-    description: 'Stylish running sneakers'
-  },
-  {
-    id: '4',
-    name: 'Watch',
-    price: 129.99,
-    image: '/next.svg',
-    category: 'Accessories',
-    description: 'Elegant wrist watch'
+    category: 'Lehengas',
+    description: 'Contemporary designer lehenga with modern cuts'
   }
 ];
 
-const sampleCategories = ['All', 'Clothing', 'Shoes', 'Accessories'];
+const sampleCategories = ['All', 'Lehengas'];
 
 interface ProductsProviderProps {
   children: ReactNode;

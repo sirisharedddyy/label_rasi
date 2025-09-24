@@ -15,12 +15,15 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header with cart count */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-lg border-b border-pink-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <h1 className="text-2xl font-bold text-gray-900">Products</h1>
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center space-x-6">
+              <img src="/logo.png" alt="Label Rasi Logo" className="h-20 drop-shadow-lg" />
+              <h1 className="text-4xl font-bold italic text-pink-600">Label Rasi - Products</h1>
+            </div>
             <Link href="/cart" className="relative">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              <button className="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 shadow-lg transition-colors">
                 Cart ({getCartItemCount()})
               </button>
             </Link>
@@ -55,21 +58,21 @@ export default function ProductsPage() {
           <div className="flex-1">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.map(product => (
-                <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden border border-pink-100 hover:shadow-xl transition-all duration-300">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-48 object-cover"
                   />
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-900">{product.name}</h3>
-                    <p className="text-gray-600 text-sm mb-2">{product.description}</p>
-                    <p className="text-gray-500 text-sm mb-2">{product.category}</p>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-pink-600 mb-2">{product.name}</h3>
+                    <p className="text-gray-600 text-sm mb-3">{product.description}</p>
+                    <p className="text-pink-500 text-sm mb-3 font-medium">{product.category}</p>
                     <div className="flex justify-between items-center">
-                      <span className="text-xl font-bold text-gray-900">${product.price}</span>
+                      <span className="text-2xl font-bold text-pink-600">${product.price}</span>
                       <button
                         onClick={() => addToCart(product)}
-                        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                        className="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 shadow-lg transition-colors font-medium"
                       >
                         Add to Cart
                       </button>

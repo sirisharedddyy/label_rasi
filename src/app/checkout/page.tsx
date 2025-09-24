@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useProducts } from '../../contexts/ProductsContext';
+import { useOrders } from '../../contexts/OrdersContext';
 
 export default function CheckoutPage() {
   const { cart, getCartTotal, clearCart } = useProducts();
+  const { addRegularOrder } = useOrders();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,19 +54,35 @@ export default function CheckoutPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would process payment and send to backend
-    // For now, just simulate order placement
+    // Create regular order
+    addRegularOrder({
+      items: cart.map(item => ({
+        product: {
+          id: item.product.id,
+          name: item.product.name,
+          price: item.product.price,
+          image: item.product.image
+        },
+        quantity: item.quantity
+      })),
+      total: getCartTotal(),
+      shippingInfo: formData
+    });
+    // Clear cart and show success
     clearCart();
     setOrderPlaced(true);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-lg border-b border-pink-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <h1 className="text-2xl font-bold text-gray-900">Checkout</h1>
-            <Link href="/cart" className="text-blue-600 hover:text-blue-800">
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center space-x-4">
+              <img src="/logo.png" alt="Label Rasi Logo" className="h-12" />
+              <h1 className="text-4xl font-bold italic text-pink-600">Label Rasi - Checkout</h1>
+            </div>
+            <Link href="/cart" className="text-pink-600 hover:text-pink-800 font-medium">
               Back to Cart
             </Link>
           </div>
@@ -174,7 +192,7 @@ export default function CheckoutPage() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 text-lg font-medium mt-6"
+                className="w-full bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 text-lg font-medium mt-6 shadow-lg transition-colors"
               >
                 Place Order
               </button>

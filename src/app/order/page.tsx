@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useOrders } from '../../contexts/OrdersContext';
 
 export default function OrderPage() {
-  const { addOrder } = useOrders();
+  const { addCustomOrder } = useOrders();
   const [referenceImage, setReferenceImage] = useState<string>('');
   const [orderPlaced, setOrderPlaced] = useState(false);
 
@@ -21,7 +21,7 @@ export default function OrderPage() {
     const formData = new FormData(e.currentTarget);
     const daysNeeded = parseInt(formData.get('daysNeeded') as string);
 
-    addOrder({
+    addCustomOrder({
       referenceImage,
       daysNeeded
     });
@@ -52,7 +52,10 @@ export default function OrderPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-md mx-auto py-12 px-4">
-        <h1 className="text-3xl font-bold text-center mb-8">Create Custom Order</h1>
+        <div className="text-center mb-8">
+          <img src="/logo.png" alt="Label Rasi Logo" className="h-16 mx-auto mb-6 drop-shadow-lg" />
+        </div>
+        <h1 className="text-4xl font-bold italic text-center mb-8 text-pink-600">Label Rasi - Create Custom Order</h1>
         <div className="bg-white rounded-lg shadow-md p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
@@ -88,7 +91,7 @@ export default function OrderPage() {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-medium"
+              className="w-full bg-pink-600 text-white py-4 rounded-lg hover:bg-pink-700 font-medium shadow-lg transition-colors text-lg"
             >
               Submit Order
             </button>

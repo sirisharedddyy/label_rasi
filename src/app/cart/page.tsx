@@ -22,11 +22,14 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-lg border-b border-pink-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <h1 className="text-2xl font-bold text-gray-900">Shopping Cart</h1>
-            <Link href="/products" className="text-blue-600 hover:text-blue-800">
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center space-x-4">
+              <img src="/logo.png" alt="Label Rasi Logo" className="h-12" />
+              <h1 className="text-4xl font-bold italic text-pink-600">Label Rasi - Shopping Cart</h1>
+            </div>
+            <Link href="/products" className="text-pink-600 hover:text-pink-800 font-medium">
               Continue Shopping
             </Link>
           </div>
@@ -84,7 +87,7 @@ export default function CartPage() {
               </div>
               <div className="mt-6 text-right">
                 <Link href="/checkout">
-                  <button className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 text-lg font-medium">
+                  <button className="bg-pink-600 text-white px-8 py-3 rounded-lg hover:bg-pink-700 text-lg font-medium shadow-lg transition-colors">
                     Proceed to Checkout
                   </button>
                 </Link>
