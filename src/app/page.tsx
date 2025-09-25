@@ -73,6 +73,14 @@ export default function Home() {
               <p className="text-gray-600">{orders.length} total orders</p>
             </div>
           </Link>
+
+          <Link href="/profile" className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-pink-100 hover:border-pink-200">
+            <div className="text-center">
+              <div className="text-5xl mb-4">👤</div>
+              <h3 className="text-xl font-semibold text-pink-600 mb-2">My Profile</h3>
+              <p className="text-gray-600">Manage your information</p>
+            </div>
+          </Link>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8">

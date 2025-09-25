@@ -1,12 +1,34 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useOrders } from '../../contexts/OrdersContext';
+import { useUser } from '../../contexts/UserContext';
 
 export default function OrderPage() {
   const { addCustomOrder } = useOrders();
+  const { profile } = useUser();
   const [referenceImage, setReferenceImage] = useState<string>('');
   const [orderPlaced, setOrderPlaced] = useState(false);
+  const [measurements, setMeasurements] = useState({
+    height: 0,
+    weight: 0,
+    chest: 0,
+    waist: 0,
+    hips: 0
+  });
+
+  useEffect(() => {
+    if (profile?.measurements) {
+      setMeasurements({
+        height: profile.measurements.height,
+        weight: profile.measurements.weight,
+        chest: profile.measurements.chest,
+        waist: profile.measurements.waist,
+        hips: profile.measurements.hips
+      });
+    }
+  }, [profile]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -23,7 +45,8 @@ export default function OrderPage() {
 
     addCustomOrder({
       referenceImage,
-      daysNeeded
+      daysNeeded,
+      measurements: measurements
     });
 
     setOrderPlaced(true);
@@ -89,6 +112,22 @@ export default function OrderPage() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
+            {profile && (
+              <div className="bg-pink-50 border border-pink-200 rounded-lg p-4 mb-6">
+                <p className="text-pink-800 font-medium mb-2">📏 Measurements loaded from your profile:</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-pink-700">
+                  <span>Height: {measurements.height}cm</span>
+                  <span>Chest: {measurements.chest}cm</span>
+                  <span>Waist: {measurements.waist}cm</span>
+                  <span>Hips: {measurements.hips}cm</span>
+                  <span>Weight: {measurements.weight}kg</span>
+                </div>
+                <p className="text-xs text-pink-600 mt-2">
+                  <Link href="/profile" className="underline hover:text-pink-800">Update measurements in profile</Link>
+                </p>
+              </div>
+            )}
+
             <button
               type="submit"
               className="w-full bg-pink-600 text-white py-4 rounded-lg hover:bg-pink-700 font-medium shadow-lg transition-colors text-lg"
