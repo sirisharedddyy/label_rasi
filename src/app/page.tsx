@@ -40,9 +40,6 @@ export default function Home() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16 relative">
-          <div className="absolute inset-0 flex items-center justify-center opacity-10">
-            <div className="text-9xl">🕉️</div>
-          </div>
           <div className="mb-12 relative z-10">
             <img src="/logo.png" alt="Label Rasi Logo" className="h-32 mx-auto mb-8 drop-shadow-2xl rounded-full border-4 border-amber-300" />
           </div>
