@@ -22,15 +22,20 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-lg border-b border-pink-100">
+      <header className="bg-gradient-to-r from-amber-50 to-orange-50 shadow-lg border-b-4 border-amber-200 traditional-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
-            <div className="flex items-center space-x-4">
-              <img src="/logo.png" alt="Label Rasi Logo" className="h-12" />
-              <h1 className="text-4xl font-bold italic text-pink-600">Label Rasi - Shopping Cart</h1>
+            <div className="flex items-center space-x-6">
+              <div className="relative mandala-decoration">
+                <img src="/logo.png" alt="Label Rasi Logo" className="h-20 drop-shadow-lg rounded-full border-4 border-amber-300" />
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold text-amber-800 font-serif">Label Rasi - Shopping Cart</h1>
+                <p className="text-sm text-amber-600 italic">Your Sacred Selections</p>
+              </div>
             </div>
-            <Link href="/products" className="text-pink-600 hover:text-pink-800 font-medium">
-              Continue Shopping
+            <Link href="/products" className="text-amber-700 hover:text-amber-800 font-medium transition-colors duration-300">
+              🪔 Continue Shopping
             </Link>
           </div>
         </div>
@@ -87,8 +92,8 @@ export default function CartPage() {
               </div>
               <div className="mt-6 text-right">
                 <Link href="/checkout">
-                  <button className="bg-pink-600 text-white px-8 py-3 rounded-lg hover:bg-pink-700 text-lg font-medium shadow-lg transition-colors">
-                    Proceed to Checkout
+                  <button className="bg-gradient-to-r from-amber-600 to-red-600 text-white px-8 py-3 rounded-lg hover:from-amber-700 hover:to-red-700 text-lg font-medium shadow-lg transition-all duration-300 transform hover:scale-105">
+                    🪔 Proceed to Checkout 🪔
                   </button>
                 </Link>
               </div>

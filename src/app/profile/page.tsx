@@ -64,15 +64,20 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-lg border-b border-pink-100">
+      <header className="bg-gradient-to-r from-amber-50 to-orange-50 shadow-lg border-b-4 border-amber-200 traditional-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-6">
-              <img src="/logo.png" alt="Label Rasi Logo" className="h-20 drop-shadow-lg" />
-              <h1 className="text-4xl font-bold italic text-pink-600">Label Rasi - My Profile</h1>
+              <div className="relative mandala-decoration">
+                <img src="/logo.png" alt="Label Rasi Logo" className="h-20 drop-shadow-lg rounded-full border-4 border-amber-300" />
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold text-amber-800 font-serif">Label Rasi - My Profile</h1>
+                <p className="text-sm text-amber-600 italic">Personal Sacred Measurements</p>
+              </div>
             </div>
-            <Link href="/" className="text-pink-600 hover:text-pink-800 font-medium">
-              Back to Home
+            <Link href="/" className="text-amber-700 hover:text-amber-800 font-medium transition-colors duration-300">
+              🏠 Back to Home
             </Link>
           </div>
         </div>
