@@ -56,23 +56,40 @@ export default function ProductsPage() {
 
           {/* Products Grid */}
           <div className="flex-1">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {filteredProducts.map(product => (
-                <div key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden border border-pink-100 hover:shadow-xl transition-all duration-300">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-48 object-cover"
-                  />
+                <div
+                  key={product.id}
+                  className="bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-pink-200 group cursor-pointer transform hover:-translate-y-2"
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute top-4 right-4">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-pink-100 text-pink-800">
+                        {product.category}
+                      </span>
+                    </div>
+                  </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold text-pink-600 mb-2">{product.name}</h3>
-                    <p className="text-gray-600 text-sm mb-3">{product.description}</p>
-                    <p className="text-pink-500 text-sm mb-3 font-medium">{product.category}</p>
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors duration-300 mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
+                      {product.description}
+                    </p>
                     <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-pink-600">${product.price}</span>
+                      <span className="text-3xl font-bold text-pink-600">${product.price}</span>
                       <button
-                        onClick={() => addToCart(product)}
-                        className="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 shadow-lg transition-colors font-medium"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addToCart(product);
+                        }}
+                        className="bg-pink-600 text-white px-6 py-3 rounded-xl hover:bg-pink-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold"
                       >
                         Add to Cart
                       </button>
