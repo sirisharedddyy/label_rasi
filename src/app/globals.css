@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary-pink: #ec4899;
-  --primary-pink-light: #fce7f3;
-  --primary-pink-dark: #be185d;
+  --background: #fef7ed;
+  --foreground: #1c1917;
+  --primary-maroon: #7c2d12;
+  --primary-gold: #d97706;
+  --primary-cream: #fef3c7;
+  --primary-red: #dc2626;
+  --accent-brass: #b45309;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary-pink);
-  --color-primary-light: var(--primary-pink-light);
-  --color-primary-dark: var(--primary-pink-dark);
+  --color-primary: var(--primary-maroon);
+  --color-secondary: var(--primary-gold);
+  --color-accent: var(--primary-red);
+  --color-cream: var(--primary-cream);
+  --color-brass: var(--accent-brass);
   --font-inter: var(--font-inter);
 }
 
@@ -24,6 +28,45 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Traditional Indian Design Elements */
+.traditional-border {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, var(--primary-maroon), var(--primary-gold), var(--primary-maroon)) 1;
+  position: relative;
+}
+
+.traditional-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary-maroon), var(--primary-gold), var(--primary-maroon));
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.indian-pattern-bg {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(124, 45, 18, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(217, 119, 6, 0.1) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+.mandala-decoration {
+  position: relative;
+}
+
+.mandala-decoration::after {
+  content: '🕉️';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5rem;
+  opacity: 0.3;
 }
 
 h1, h2, h3, h4, h5, h6 {
