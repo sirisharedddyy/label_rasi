@@ -11,16 +11,6 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: "Label Rasi - Custom Tailoring & Fashion",
   description: "Premium custom tailoring and fashion e-commerce with personalized orders",
