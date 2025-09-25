@@ -23,6 +23,11 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex space-x-4">
+                <Link href="/profile" className="relative">
+                  <button className="bg-gradient-to-r from-maroon-600 to-red-600 text-white px-6 py-3 rounded-lg hover:from-maroon-700 hover:to-red-700 shadow-lg transition-all duration-300 transform hover:scale-105">
+                    👤 Profile
+                  </button>
+                </Link>
                 <Link href="/cart" className="relative">
                   <button className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-6 py-3 rounded-lg hover:from-amber-700 hover:to-orange-700 shadow-lg transition-all duration-300 transform hover:scale-105">
                     🛒 Cart ({getCartItemCount()})
